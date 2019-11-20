@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	_ "os"
-	_ "strings"
+	"strings"
 	"sync"
 
 	"github.com/yhat/scrape"
@@ -55,17 +55,15 @@ func main() {
 	root, err := html.Parse(response.Body) //root에 루리웹사이트의 바디코드를 전부 다 넣음.
 	errCheck(err)
 
-	//define a matcher
-	matcher := func(n *html.Node) bool {
-		// must check for nil values
-		if n.DataAtom == atom.A && n.Parent != nil && n.Parent.Parent != nil {
-			return scrape.Attr(n.Parent.Parent, "class") == "athing"
-		}
-		return false
-	}
 	//대상 URL 추출
-	urlList := scrape.FindAll(root, parse)
-	for i, article := range articles {
-		fmt.Printf("%2d %s (%s)\n", i, scrape.Text(article), scrape.Attr(article, "href"))
+	urlList := scrape.FindAll(root, parseMainNodes)
+
+	//class = row인 태그들 싹 다 긁어와서 for range로 순회
+	for _, link := range urlList {
+		//대상 Url 1차 출력
+		// fmt.Println("Main Link : ", link, idx)
+		// fmt.Println("TargetUrl : ", scrape.Attr(link, "href"))
+		fileName := 
 	}
+
 }
