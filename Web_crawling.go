@@ -46,7 +46,7 @@ func parseSubNodes(n *html.Node) bool {
 //에러 체크 공통 함수
 func errCheck(err error) {
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal(err) //panic(err)
 	}
 }
 
@@ -80,7 +80,7 @@ func scrapContents(href, fn string) {
 	//쓰기 버퍼 선언
 	w := bufio.NewWriter(file)
 
-	//matchNode 메소드를 사용해서 원하는 노드 순회(Iterator)하면서 출력
+	//parseSubNodes 함수를 사용해서 원하는 노드 순회(Iterator)하면서 출력
 	for _, g := range scrape.FindAll(root, parseSubNodes) {
 		//Url 및 해당 데이터 출력
 		fmt.Println("result : ", scrape.Text(g))
