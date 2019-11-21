@@ -31,6 +31,6 @@ const (
 	urlRoot = "http://ruliweb.com"
 )
 ```
-<img src="./screenshot/ruliweb.png" width="500">
+<img src="/users/jejeongmin/documents/go/src/web_crawler/screenshot/ruliweb.png" width="300">
 
 
