@@ -32,7 +32,7 @@ const (
 )
 ```
 
-<img src="./Screenshot/ruliweb.png" width="500">
+<img src="./Screenshot/ruliweb .png" width="500">
 
 ## 에러 체크 함수 Function for check error
     - Panic(err) vs log.Fatal(err)
@@ -134,17 +134,17 @@ func parseMainNodes(n *html.Node) bool {
     w.Flush()
 ```
 
-<img src="./Screenshot/Scrape.png" width="500">
+<img src="./Screenshot/Scrape .png" width="500">
 
 ## 삽질했던 부분 Difficult point
     - 어디서 에러가 발생했는지 한참 헤매다가 찾음
     - 어찌저찌 해결했긴 했으나 아직 좀 의문이다.
 
 ### 에러코드
-<img src="./Screenshot/It's error.png" width="1000">
+<img src="./Screenshot/It's error .png" width="1000">
 
 ### 수정한 코드
-<img src="./Screenshot/It's correct.png" width="1000">
+<img src="./Screenshot/It's correct .png" width="1000">
 
 
 
