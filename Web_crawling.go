@@ -5,16 +5,15 @@ package main
 
 import (
 	"bufio"
-	_ "bufio"
 	"fmt"
+	"github.com/yhat/scrape"
+	"golang.org/x/net/html"
+	"golang.org/x/net/html/atom"
+	"log"
 	"net/http"
 	"os"
 	"strings"
 	"sync"
-
-	"github.com/yhat/scrape"
-	"golang.org/x/net/html"
-	"golang.org/x/net/html/atom"
 )
 
 // https://github.com/yhat/scrape : 사용하기 어렵지만, 코드 학습 위해서 사용
@@ -35,16 +34,20 @@ func parseMainNodes(n *html.Node) bool {
 }
 
 func parseSubNodes(n *html.Node) bool {
-	if n.DataAtom == atom.A && n.Parent != nil {
-		return scrape.Attr(n.Parent, "class") == "deco"
-	}
-	return false
+	return n.DataAtom == atom.A && scrape.Attr(n, "class") == "deco"
 }
+
+// func parseSubNodes(n *html.Node) bool {
+// 	if n.DataAtom == atom.A && n.Parent != nil {
+// 		return scrape.Attr(n.Parent, "class") == "deco"
+// 	}
+// 	return false
+// }
 
 //에러 체크 공통 함수
 func errCheck(err error) {
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 }
 
@@ -67,13 +70,17 @@ func scrapContents(href, fn string) {
 	errCheck(err)
 
 	//파일 스크림 생성(열기) -> 파일명, 옵션, 권한
-	file, err := os.OpenFile("/Users/jejeongmin/documents/go/src/Scrape/"+fn+".txt", os.O_CREATE|os.O_RDWR, os.FileMode(0777))
+	file, err := os.OpenFile("/Users/jejeongmin/documents/go/src/Web_crawler/scrape/"+fn+".txt", os.O_CREATE|os.O_RDWR, os.FileMode(0777))
 
 	//에러체크
 	errCheck(err)
 
+	fmt.Println("a")
+
 	//메소드 종료 시 파일 닫기
 	defer file.Close()
+
+	fmt.Println("b")
 
 	//쓰기 버퍼 선언
 	w := bufio.NewWriter(file)
@@ -81,8 +88,11 @@ func scrapContents(href, fn string) {
 	//matchNode 메소드를 사용해서 원하는 노드 순회(Iterator)하면서 출력
 	for _, g := range scrape.FindAll(root, parseSubNodes) {
 		//Url 및 해당 데이터 출력
-		fmt.Println()
+		fmt.Println("result : ", scrape.Text(g))
+		//파싱 데이터 -> 버퍼에 기록
+		w.WriteString(scrape.Text(g) + "\r\n")
 	}
+	w.Flush()
 }
 
 func main() {
