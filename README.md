@@ -134,7 +134,7 @@ func parseMainNodes(n *html.Node) bool {
     w.Flush()
 ```
 
-<img src="./Screenshot/Scrape .png" width="500">
+<img src="./Screenshot/Scrape .png" width="1000">
 
 ## 삽질했던 부분 Difficult point
     - 어디서 에러가 발생했는지 한참 헤매다가 찾음
