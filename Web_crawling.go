@@ -1,4 +1,4 @@
-//대상 사이트 : 루리웹(www.ruriweb.com)
+//대상사이트 : 루리웹(www.ruriweb.com)
 
 package main
 
