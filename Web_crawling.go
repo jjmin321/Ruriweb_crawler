@@ -1,5 +1,4 @@
 //대상 사이트 : 루리웹(www.ruriweb.com)
-//대한민국 최고 규모 게임 관련 인터넷 커뮤니티
 
 package main
 
@@ -75,12 +74,8 @@ func scrapContents(href, fn string) {
 	//에러체크
 	errCheck(err)
 
-	fmt.Println("a")
-
 	//메소드 종료 시 파일 닫기
 	defer file.Close()
-
-	fmt.Println("b")
 
 	//쓰기 버퍼 선언
 	w := bufio.NewWriter(file)
