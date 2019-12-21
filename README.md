@@ -1,6 +1,6 @@
-# Web_crawler 웹크롤러 만들기
+# 🕸️ Web_crawler 웹크롤러 만들기
 
-## 사용한 패키지 Need to Package 
+## 📦 사용한 패키지 Need to Package 
 ```go
 import (
 	"bufio"
@@ -16,7 +16,7 @@ import (
 )
 ```
 
-## 배운 점  What I learned and other thing, etc
+## 👉 배운 점  What I learned and other thing, etc
     - Got used to use other's package
     - Got used to use golang official package
     - learned how to use other's package
@@ -24,7 +24,7 @@ import (
     - Next time, I'd like to make a lot of crawler
     - Could you tell me if you have any ad vice and feedback?
 
-## 웹 사이트 주소 상수 선언 Declare of URL site with const 
+## 👨‍💻 웹 사이트 주소 상수 선언 Declare of URL site with const 
 ```go
 //스크래핑 대상 URL
 const (
@@ -34,7 +34,7 @@ const (
 
 <img src="./Screenshot/ruliweb .png" width="500">
 
-## 에러 체크 함수 Function for check error
+## ✅ 에러 체크 함수 Function for check error
     - Panic(err) vs log.Fatal(err)
     - Panic을 사용하면 에러가 저장되어 recover로 꺼낼 수 있음
     - log.Fatal을 사용하면 에러 발생 시 즉시 에러 메시지 출력 
@@ -47,7 +47,7 @@ func errCheck(err error) {
 }
 ```
 
-## 동기화 Synchronization
+## 🧺 동기화 Synchronization
     - mutex.Lock(), mutex.Unlock() vs sync.WaitGroup
     - mutex 사용 시 고루틴이 하나씩 실행되게 끔 동기화 가능
     - sync.WaitGroup을 사용해 mutex보다 조금 더 동기화에 신경쓰지 않을 수 있는 거 같음.
@@ -56,7 +56,7 @@ func errCheck(err error) {
 var wg sync.WaitGroup
 ```
 
-## 웹 메인페이지에서 원하는 URL파싱 후 반환하는 함수 생성 Function will use return important URL from Web mainpage
+## 📃 웹 메인페이지에서 원하는 URL파싱 후 반환하는 함수 생성 Function will use return important URL from Web mainpage
 만약 웹 브라우저 HTML 코드에 a태그와 부모태그가 모두 있는 태그라면 class가 row인지 분석 후 반환
 ```go
 //첫 번째 방문(메인페이지) 대상으로 원하는 url을 파싱 후 반환하는 함수
@@ -69,7 +69,7 @@ func parseMainNodes(n *html.Node) bool {
 ```
 
 
-## 웹 브라우저 코드 갖고와서 분석 Analysis HTML code
+## 👩‍💻 웹 브라우저 코드 갖고와서 분석 Analysis HTML code
 ```go
     //메인 페이지 Get 방식 요청
 	response, err := http.Get(urlRoot) //response(응답), request(요청)
@@ -86,7 +86,7 @@ func parseMainNodes(n *html.Node) bool {
 	urlList := scrape.FindAll(root, parseMainNodes)
 ```
 
-## urlList 객체 분석 후 파싱해오고자 하는 사이트들 고루틴(쓰레드) 통해 접속 Connect to desirous site with Goroutine(Thread)
+## 🧵 urlList 객체 분석 후 파싱해오고자 하는 사이트들 고루틴(쓰레드) 통해 접속 Connect to desirous site with Goroutine(Thread)
     - 쓰레드 하나 당 하나씩 작업 대기열 추가(동기화, wg.Add(1))
 ```go
 //class = row인 태그들 싹 다 긁어와서 for range로 순회
@@ -104,7 +104,7 @@ func parseMainNodes(n *html.Node) bool {
     }
 ```
 
-## 파일 생성 Create File
+## 📁 파일 생성 Create File
     - 지정한 경로에 파일이 없다면 생성/있다면 수정 
     - 퍼미션은 777로 줌.
     - defer함수로 파일 안 닫으면 대참사 발생(주의)
@@ -117,7 +117,7 @@ func parseMainNodes(n *html.Node) bool {
 	defer file.Close()
 ```
 
-## .txt파일에 파싱내용 넣기 Input to txt
+## 🗒️ .txt파일에 파싱내용 넣기 Input to txt
     - scrape.FindAll 사용해서 원하는 내용만 긁어오기
     - w.Flush로 버퍼 비워주면서 한 번에 내용 다 넣기
 ```go
@@ -136,14 +136,14 @@ func parseMainNodes(n *html.Node) bool {
 
 <img src="./Screenshot/Scrape .png" width="1000">
 
-## 삽질했던 부분 Difficult point
+## 😞 삽질했던 부분 Difficult point
     - 어디서 에러가 발생했는지 한참 헤매다가 찾음
     - 어찌저찌 해결했긴 했으나 아직 좀 의문이다.
 
-### 에러코드
+### 🙅‍♂️ 에러코드
 <img src="./Screenshot/It's error .png" width="1000">
 
-### 수정한 코드
+### 🙆‍♂️수정한 코드
 <img src="./Screenshot/It's correct .png" width="1000">
 
 
