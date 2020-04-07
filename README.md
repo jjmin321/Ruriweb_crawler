@@ -1,3 +1,13 @@
+<div align="center">
+  
+![GitHub contributors](https://img.shields.io/github/contributors/jjmin321/Ruriweb_crawler)
+![GitHub forks](https://img.shields.io/github/forks/jjmin321/Ruriweb_crawler?label=Forks)
+![GitHub stars](https://img.shields.io/github/stars/jjmin321/Ruriweb_crawler?style=Stars)
+![GitHub issues](https://img.shields.io/github/issues-raw/jjmin321/Ruriweb_crawler)
+[![Go Report Card](https://goreportcard.com/badge/github.com/jjmin321/Ruriweb_crawler)](https://goreportcard.com/report/github.com/jjmin321/Ruriweb_crawler)
+
+</div>
+
 # 🕸️ Web_crawler 웹크롤러 만들기
 
 ## 📦 사용한 패키지 Need to Package 
