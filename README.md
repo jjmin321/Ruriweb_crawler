@@ -1,61 +1,11 @@
-<div align="center">
-  
-![GitHub contributors](https://img.shields.io/github/contributors/jjmin321/Ruriweb_crawler)
-![GitHub forks](https://img.shields.io/github/forks/jjmin321/Ruriweb_crawler?label=Forks)
-![GitHub stars](https://img.shields.io/github/stars/jjmin321/Ruriweb_crawler?style=Stars)
-![GitHub issues](https://img.shields.io/github/issues-raw/jjmin321/Ruriweb_crawler)
-[![Go Report Card](https://goreportcard.com/badge/github.com/jjmin321/Ruriweb_crawler)](https://goreportcard.com/report/github.com/jjmin321/Ruriweb_crawler)
-
-</div>
-
 # 🕸️ Web_crawler 웹크롤러 만들기
 
-## 📦 사용한 패키지 Need to Package 
-```go
-import (
-	"bufio"
-	"fmt"
-	"github.com/yhat/scrape"
-	"golang.org/x/net/html"
-	"golang.org/x/net/html/atom"
-	"log"
-	"net/http"
-	"os"
-	"strings"
-	"sync"
-)
-```
-
-## 👉 배운 점  What I learned and other thing, etc
-    - Got used to use other's package
-    - Got used to use golang official package
-    - learned how to use other's package
-    - I Could learn how to scrape code from web browser
-    - Next time, I'd like to make a lot of crawler
-    - Could you tell me if you have any ad vice and feedback?
-
-## 👨‍💻 웹 사이트 주소 상수 선언 Declare of URL site with const 
-```go
-//스크래핑 대상 URL
-const (
-	urlRoot = "http://ruliweb.com"
-)
-```
-
-<img src="./Screenshot/ruliweb .png" width="500">
-
-## ✅ 에러 체크 함수 Function for check error
-    - Panic(err) vs log.Fatal(err)
-    - Panic을 사용하면 에러가 저장되어 recover로 꺼낼 수 있음
-    - log.Fatal을 사용하면 에러 발생 시 즉시 에러 메시지 출력 
-```go
-//에러 체크 공통 함수
-func errCheck(err error) {
-	if err != nil {
-		log.Fatal(err)  //panic(err)
-	}
-}
-```
+## Stack
+|           |     Crawler      |
+|:---------:|:---------:|
+| Developer | 제정민 | 
+| Develop Language | GO |  
+| Develop Tool     | Visual Studio Code|
 
 ## 🧺 동기화 Synchronization
     - mutex.Lock(), mutex.Unlock() vs sync.WaitGroup
