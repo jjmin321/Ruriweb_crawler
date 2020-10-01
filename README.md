@@ -1,4 +1,4 @@
-# 🕸️ Web_crawler 웹크롤러 만들기
+# Ruriweb_crawler
 
 ## Stack
 |           |     Crawler      |
