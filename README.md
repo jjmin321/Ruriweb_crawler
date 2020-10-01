@@ -96,18 +96,4 @@ func parseMainNodes(n *html.Node) bool {
 
 <img src="./Screenshot/Scrape .png" width="1000">
 
-## 😞 삽질했던 부분 Difficult point
-    - 어디서 에러가 발생했는지 한참 헤매다가 찾음
-    - 어찌저찌 해결했긴 했으나 아직 좀 의문이다.
-
-### 🙅‍♂️ 에러코드
-<img src="./Screenshot/It's error .png" width="1000">
-
-### 🙆‍♂️수정한 코드
-<img src="./Screenshot/It's correct .png" width="1000">
-
-
-
-
-
 
